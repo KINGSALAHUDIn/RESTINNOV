@@ -1,0 +1,206 @@
+/* TranscriptResult.css */
+
+.tr-page {
+  min-height: 100vh;
+  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.tr-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding: 2rem;
+  width: 100%;
+  max-width: 860px;
+}
+
+/* Header */
+.tr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tr-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f3864;
+  margin: 0;
+}
+
+/* Meta */
+.tr-meta {
+  background: #d6e4f0;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tr-meta__row { display: flex; gap: 0.75rem; font-size: 0.88rem; }
+.tr-meta__label { font-weight: 600; color: #1f3864; min-width: 130px; }
+.tr-meta__value { color: #333; }
+
+/* Summary pills */
+.tr-summary {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.tr-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  min-width: 80px;
+}
+.tr-pill--total { background: #e8edf2; }
+.tr-pill--ok    { background: #c6efce; }
+.tr-pill--nok   { background: #ffc7ce; }
+.tr-pill__num   { font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.tr-pill__lbl   { font-size: 0.75rem; color: #555; margin-top: 2px; }
+
+/* Action buttons */
+.tr-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.tr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.tr-btn:active { transform: scale(0.97); }
+.tr-btn:disabled { opacity: 0.65; cursor: not-allowed; }
+
+.tr-btn--excel {
+  background: #1d6f42;
+  color: #fff;
+}
+.tr-btn--excel:hover:not(:disabled) { background: #175734; }
+
+.tr-btn--loading {
+  background: #3a8f5f;
+}
+
+.tr-btn--primary {
+  background: #2e75b6;
+  color: #fff;
+}
+.tr-btn--primary:hover { background: #1f5a8a; }
+
+.tr-btn--ghost {
+  background: #f0f4f8;
+  color: #333;
+  border: 1px solid #d0d7e0;
+}
+.tr-btn--ghost:hover { background: #e2e8f0; }
+
+/* Spinner inside button */
+.tr-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: tr-spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes tr-spin { to { transform: rotate(360deg); } }
+
+/* Error */
+.tr-error {
+  background: #fff0f0;
+  color: #c00;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Sections */
+.tr-sections { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem; }
+
+.tr-section__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #2e75b6;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px 8px 0 0;
+  margin: 0;
+}
+
+.tr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+}
+.tr-table th {
+  background: #d6e4f0;
+  color: #1f3864;
+  font-weight: 600;
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  border: 1px solid #c0d0e0;
+}
+.tr-table td {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #e0e8f0;
+  vertical-align: top;
+}
+.tr-table tbody tr:nth-child(even) td { background: #f5f9fd; }
+.tr-comment { color: #555; font-size: 0.84rem; }
+
+/* Badges */
+.tr-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tr-badge--ok     { background: #c6efce; color: #276221; }
+.tr-badge--nok    { background: #ffc7ce; color: #9c1515; }
+.tr-badge--na     { background: #f2f2f2; color: #888; }
+.tr-badge--saved  { background: #c6efce; color: #276221; font-size: 0.8rem; }
+
+/* Transcript */
+.tr-transcript {
+  margin-top: 2rem;
+  border: 1px solid #e0e8f0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+.tr-transcript summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1f3864;
+  margin-bottom: 0.5rem;
+}
+.tr-transcript p { margin: 0; line-height: 1.6; }
+
+.tr-empty { color: #888; text-align: center; padding: 2rem 0; }
