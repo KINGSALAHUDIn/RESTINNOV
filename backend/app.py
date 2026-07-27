@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file,send_from_directory
 from flask_cors import CORS
 from groq import Groq
 import os
@@ -7,14 +7,24 @@ import tempfile
 import json
 import sqlite3
 from dotenv import load_dotenv
-
+import threading
+import webbrowser
 # ── Excel generation ──────────────────────────────────────────────────────────
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
 load_dotenv()
 
-app = Flask(__name__)
+
+app = Flask(
+    __name__,
+    static_folder="dist",
+    static_url_path=""
+)
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def catch_all(path):
+    return send_from_directory(app.static_folder, "index.html")
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 api_key = os.environ.get("GROQ_API_KEY")
@@ -621,6 +631,7 @@ def export_excel_post():
         download_name=filename,
     )
 
-
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+
+    
+   app.run(host="0.0.0.0", port=5000)
