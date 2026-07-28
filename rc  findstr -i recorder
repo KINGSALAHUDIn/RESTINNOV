@@ -113,7 +113,7 @@ export default function AudioRecorder() {
     formData.append("audio", blob, "recording.webm");
 
     try {
-      const res = await fetch("https://jubilant-beauty-production-0af4.up.railway.app/transcribe", {
+      const res = await fetch("http://jubilant-beauty-production-0af4.up.railway.app/transcribe", {
         method: "POST",
         body: formData,
       });
