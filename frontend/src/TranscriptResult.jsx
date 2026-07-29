@@ -82,7 +82,7 @@ export default function TranscriptResult() {
     setDownloading(true);
     setDlError("");
     try {
-      const res = await fetch("http://localhost:5000/export", {
+      const res = await fetch("http://jubilant-beauty-production-0af4.up.railway.app/export", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ inspection, id }),
